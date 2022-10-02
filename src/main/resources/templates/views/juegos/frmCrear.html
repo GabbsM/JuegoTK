@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template ::  head">
+<body>
+<header th:replace="plantilla/template :: header"></header>
+<div class="container">
+
+
+    <div class="card bg-ligth">
+        <div class="card-header bg-dark text-white" th:text="${titulo}" ></div>
+        <div class="card-body">
+
+
+            <form th:action="@{/views/juegos/save}"  th:object="${juego}" method="post">
+                <div class="form-group row">
+
+
+                  <input type="hidden" th:field="*{id}">
+                    <label class="col-md-2" for="titulo">Titulo:</label>
+                    <input type="text" th:field="*{titulo}" class="form-control form-control-sm col-md-6" id="titulo">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('titulo')}"
+                           th:errors="*{titulo}"></small>
+                </div>
+
+
+
+
+                <div class="form-group row">
+                    <label class="col-md-2" for="desarrollador">Desarrollador:</label>
+                    <input type="text" th:field="*{desarrollador}" class="form-control form-control-sc col-md-6"
+                           id="desarrollador">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('desarrollador')}"
+                           th:errors="*{desarrollador}"></small>
+                </div>
+
+
+                <div class="form-group row ">
+                    <label class="col-md-2" for="genero">Genero:</label>
+                    <select th:field="*{genero}" class="form-control form-control-sm col-md-6" id="genero">
+
+                        <option th:each="genero:${generos}"
+                                th:value="${genero.id}"
+                                th:text="${genero.genero}">
+
+                        </option>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('genero')}"
+                               th:errors="*{genero}"></small>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group row ">
+                    <label class="col-md-2" for="plataforma">Plataforma:</label>
+                    <select th:field="*{plataforma}" class="form-control form-control-sm col-md-6" id="plataforma">
+
+                        <option th:each="plataforma:${plataformas}"
+                                th:value="${plataforma.id}"
+                                th:text="${plataforma.plataforma}">
+
+                        </option>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('plataforma')}"
+                               th:errors="*{plataforma}"></small>
+                    </select>
+
+                </div>
+
+             <!--   <div class="form-group row">
+                    <label class="col-md-2" for="fechaLanzamiento">Fecha de lanzamiento:</label>
+                    <input type="text" th:field="*{fechaLanzamiento}" class="form-control form-control-sm col-md-6"
+                           id="fechaLanzamiento">
+                    <small></small>
+                </div>-->
+
+                <div class="form-group row ">
+                    <label class="col-md-2" for="estado">Estado:</label>
+                    <select th:field="*{estado}" class="form-control form-control-sm col-md-6" id="estado">
+
+                        <option th:each="estado:${estados}"
+                                th:value="${estado.id}"
+                                th:text="${estado.estado}">
+
+                        </option>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('estado')}"
+                               th:errors="*{estado}"></small>
+                    </select>
+
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2" for="nota">Nota:</label>
+                    <input type="number" min=0, max=10 th:field="*{nota}"
+                           class="form-control form-control-sm col-md-6"
+                           id="nota">
+                    <small></small>
+                </div>
+
+
+
+                <div class="card-footer bg-dark ">
+                    <input type="submit" class="btn btn-primary" value="Guardar"/>
+
+                </div>
+
+            </form>
+
+
+            </div>
+        </div>
+
+
+</div>
+</body>
+<footer th:replace="plantilla/template :: footer">
+
+</footer>
+
+</head>
+</html>

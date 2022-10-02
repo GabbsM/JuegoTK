@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template ::  head">
+<body>
+<header th:replace="plantilla/template :: header"></header>
+<div class="container">
+
+    <div class="container">
+        <a class="btn btn-success btn-sm mt-1 mb-1" th:href="@{/views/juegos/create}" th:text="'Nuevo registro'"
+           title="Crear nuevo juego"></a>
+        <table class="table">
+            <thead class="table-dark">
+            <tr>
+                <!--<th scope="col"  >ID</th>-->
+                <th scope="col">Titulo</th>
+                <th scope="col">Plataforma</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Desarrollador</th>
+               <!-- <th scope="col">Fecha de lanzamiento</th>-->
+                <th scope="col">Estado</th>
+                <th scope="col">Nota</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="juego:${juegos}">
+                <!--<th scope="row" th:text = "${juego.id}"></th>-->
+                <td th:text="${juego.titulo}"></td>
+                <td th:text="${juego.plataforma.plataforma}"></td>
+                <td th:text="${juego.genero.genero}"></td>
+                <td th:text="${juego.desarrollador}"></td>
+                <td th:text="${juego.estado.estado}"></td>
+                <!--<td th:text="${jg.fechaLanzamiento}"></td>-->
+                <td th:text="${juego.nota}"></td>
+                <td >
+                    <a class="btn btn-primary btn-sm mt-1 mb-1" th:href="@{/views/juegos/edit/}+${juego.id}"
+                       th:text="'Editar'"
+                       title="Modificar registro"></a>
+                </td>
+
+                <td >
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" th:href="@{/views/juegos/delete/}+${juego.id}"
+                       th:text="'Eliminar'"
+                       title="Eliminar registro"
+                       onclick="return confirm('Estas seguro de eliminar el registro?')"></a>
+
+                </td>
+
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+
+<footer th:replace="plantilla/template :: footer">
+
+</footer>
+
+</head>
+</html>
+

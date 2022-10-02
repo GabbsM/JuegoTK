@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template ::  head">
+<body>
+<header th:replace="plantilla/template :: header"></header>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-header">
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}"></a>
+                    <i class="fa-sharp fa-solid fa-user">Login</i>
+                </li>
+                <li class="nav-link active" th:href="@{/usuario/registro}">
+                    <i class="fa-sharp fa-solid fa-user-plus">Registro</i>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="card-body">
+
+            <form th:action="@{/login}" method="post">
+
+
+                <div class="form-group">
+                    <label for="nombreusuario">Usuario</label>
+                    <input type="nombreusuario" class="form-control" id="nombreusuario" name="nombreusuario"
+                           required="required"
+                           autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required="required"
+                           autocomplete="off">
+                </div>
+
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-to-bracket"></i>Crear Cuenta
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
