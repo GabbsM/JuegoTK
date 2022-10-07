@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Gameoteca</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
 </head>
 <body>
 <!-- BARRA DE NAVEGACION -->
@@ -27,6 +30,7 @@
                         <a class="nav-link text-light" th:href="@{/views/juegos/pruebas/}">Pruebas</a>
                     </li>
 
+
             </div>
         </div>
     </nav>
@@ -35,6 +39,66 @@
 
 <div class="container"></div>
 <!-- CONTENIDO -->
+<h4 text align="center">CAMPO DE PRUEBAS</h4>
+
+<table class="table">
+    <thead class="table-dark">
+    <tr>
+        <!--<th scope="col"  >ID</th>-->
+        <th scope="col">Titulo</th>
+        <th scope="col">Plataforma</th>
+        <th scope="col">Genero</th>
+        <th scope="col">Desarrollador</th>
+        <!-- <th scope="col">Fecha de lanzamiento</th>-->
+        <th scope="col">Estado</th>
+        <th scope="col">Metacritic</th>
+        <th scope="col">Mi nota</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="juego:${juegos}">
+        <!--<th scope="row" th:text = "${juego.id}"></th>-->
+        <td th:text="${juego.titulo}"></td>
+        <td th:text="${juego.plataforma.plataforma}"></td>
+        <td th:text="${juego.genero.genero}"></td>
+        <td th:text="${juego.desarrollador}"></td>
+        <td th:text="${juego.estado.estado}"></td>
+        <!--<td th:text="${jg.fechaLanzamiento}"></td>-->
+        <td th:text="${juego.nota}"></td>
+        <td >
+            <a class="btn btn-primary btn-sm mt-1 mb-1" th:href="@{/views/juegos/edit/}+${juego.id}"
+               th:text="'Editar'"
+               title="Modificar registro"></a>
+        </td>
+
+        <td >
+            <a class="btn btn-danger btn-sm mt-1 mb-1" th:href="@{/views/juegos/delete/}+${juego.id}"
+               th:text="'Eliminar'"
+               title="Eliminar registro"
+               onclick="return confirm('Estas seguro de eliminar el registro?')"></a>
+
+        </td>
+
+    </tr>
+    <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th scope="row"></th>
+        <td colspan="2"></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
 
 <!-- FOOTER -->
 <footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
@@ -45,25 +109,14 @@
     <script type="text/javascript" th:src="@{/js/jquery-3.3.1.slim.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+
+
+
 </footer>
 
 
-<form>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
 
 </body>
 </html>

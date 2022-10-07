@@ -2,10 +2,11 @@
 <html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="plantilla/template ::  head">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 <body>
 <header th:replace="plantilla/template :: header"></header>
 
-<div class="container">
+<div class="container d-flex justify-content-center">
 
     <div class="card">
         <div class="card-header">
@@ -13,10 +14,10 @@
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/login}"></a>
-                    <i class="fa-sharp fa-solid fa-user">Login</i>
+                    <i class=<i class="fas fa-user"></i>>Login</i>
                 </li>
                 <li class="nav-link active" th:href="@{/usuario/registro}">
-                    <i class="fa-sharp fa-solid fa-user-plus">Registro</i>
+                    <i class="fas fa-user-plus"></i>Registro</i>
                 </li>
 
             </ul>
@@ -29,7 +30,7 @@
 
                 <div class="form-group">
                     <label for="nombreusuario">Usuario</label>
-                    <input type="nombreusuario" class="form-control" id="nombreusuario" name="nombreusuario"
+                    <input type="text" class="form-control" id="nombreusuario" name="nombreusuario"
                            required="required"
                            autocomplete="off">
                 </div>

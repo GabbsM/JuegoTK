@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
     <meta charset="UTF-8">
     <title>Gameoteca</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"></link>
-    <script src="https://kit.fontawesome.com/ac22fa8069.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
+
+
+
 <body>
 <!-- BARRA DE NAVEGACION -->
 <header th:fragment="header">
@@ -16,25 +19,31 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active text-light" aria-current="page" th:href="@{/index}">Inicio</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-light" th:href="@{/views/juegos/}">Juegos</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-light" th:href="@{/logeo}">Registro</a>
-                        <i class="fa-regular fa-user"></i>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-light" th:href="@{/views/juegos/pruebas/}">Pruebas</a>
                     </li>
-
-
+                </ul>
 
             </div>
+
+
+
         </div>
     </nav>
 
@@ -52,8 +61,13 @@
     <script type="text/javascript" th:src="@{/js/jquery-3.3.1.slim.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
 </footer>
 
 
 </body>
+
+
+
+
 </html>
