@@ -1,13 +1,19 @@
 package com.espai.JuegoTK.client;
 
-import com.espai.JuegoTK.client.model.RawGGame;
+import com.espai.JuegoTK.client.model.GameResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "rawg-api", url = "https://api.rawg.io/api")
+@FeignClient(name = "apiGame" , url = "${rawg.api.baseurl}")
 public interface RawGClient {
 
-    @GetMapping("/games/{id}?key=67159a70d7ac44e0a39363ead4f2be60")
-    RawGGame getGameById(@PathVariable("id") Integer id);
+    @GetMapping(value = "/games")
+    GameResponse getAll(@RequestParam("key") String apiKey,
+                        @RequestParam("search") String search);
+
+    @GetMapping(value = "/games/{id}")
+    GameResponse.Game getById(@RequestParam("key") String apiKey,
+                              @PathVariable("id") int id);
 }

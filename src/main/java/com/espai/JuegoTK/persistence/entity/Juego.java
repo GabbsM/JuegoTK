@@ -21,6 +21,8 @@ public class Juego implements Serializable{
     @Column(name = "id")
     private int id;
 
+    @NotEmpty
+    @Column(name = "api_id")
     private Integer apiId;
 
     @NotEmpty

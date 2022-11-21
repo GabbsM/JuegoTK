@@ -47,8 +47,56 @@
 
 </header>
 
-<div class="container"></div>
-<!-- CONTENIDO -->
+<div class="container">
+    <!-- CONTENIDO -->
+
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white" th:text="${titulo}" ></div>
+        <div class="card-body">
+
+
+            <form th:action="@{/views/juegos/searchText}" th:object="${busqueda}"  method="post">
+                <div class="form-group row">
+                    <label class="col-md-2" for="titulo">Titulo:</label>
+                    <input type="text" th:field="*{titulo}" class="form-control form-control-sm col-md-6" id="titulo">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('titulo')}"
+                           th:errors="*{titulo}"></small>
+                </div>
+
+                <div class="card-footer bg-dark ">
+                    <input type="submit" class="btn btn-primary" value="Buscar"/>
+                </div>
+
+            </form>
+
+
+        </div>
+        <div class="card-body">
+
+            <table class="table">
+                <thead class="table-dark">
+                <thead/>
+                <tr th:each="juego:${juegos}">
+                    <td th:text="${juego.titulo}"></td>
+                    <td>
+                        <a class="btn btn-info btn-sm mt-1 mb-1"
+                           th:href="@{/views/juegos/create/}+${juego.id}"
+                           th:text="'Crear ficha'"
+                           title="Crear Ficha"
+                        ></a>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
 
 <!-- FOOTER -->
 <footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
