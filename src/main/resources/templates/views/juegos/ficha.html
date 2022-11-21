@@ -52,7 +52,7 @@
             <br>
 
             <table class="table">
-                <thead class="table-secondary">
+                <thead class="table-info">
                 <tr>
                     <th scope="col">Titulo:</th>
                 </tr>
@@ -65,7 +65,7 @@
             </table>
 
             <table class="table">
-                <thead class="table-dark">
+                <thead class="table-info">
                 <tr>
                     <th scope="col">Desarrollador:</th>
                 </tr>
@@ -79,7 +79,22 @@
             </table>
 
             <table class="table">
-                <thead class="table-dark">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col">Fecha de lanzamiento:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td th:text="${juego.released}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <table class="table">
+                <thead class="table-info">
                 <tr>
                     <th scope="col">Genero:</th>
                 </tr>
@@ -93,21 +108,21 @@
             </table>
 
             <table class="table">
-                <thead class="table-dark">
+                <thead class="table-info">
                 <tr>
-                    <th scope="col">Desarrollador:</th>
+                    <th scope="col">Mi nota:</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
 
-                    <td th:text="${juego.desarrollador}"></td>
+                    <td th:text="${juego.nota}"></td>
                 </tr>
                 </tbody>
             </table>
 
             <table class="table">
-                <thead class="table-dark">
+                <thead class="table-info">
                 <tr>
                     <th scope="col">Metacritic:</th>
                 </tr>
@@ -118,6 +133,16 @@
                     <td th:text="${juego.metacritic}"></td>
                 </tr>
                 </tbody>
+            </table>
+
+
+
+            <table class="table">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
             </table>
 
         </div>

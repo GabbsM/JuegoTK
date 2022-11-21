@@ -10,4 +10,5 @@ public class GameDTO {
     String titulo;
     Integer metacritic;
     String background_image;
+    String released;
 }

@@ -16,6 +16,7 @@ public class GameResponse {
         String name;
         Integer metacritic;
         String background_image;
+        String released;
 
         public GameDTO convert(){
             return GameDTO.builder()
@@ -23,6 +24,7 @@ public class GameResponse {
                     .titulo(this.name)
                     .metacritic(this.metacritic)
                     .background_image(this.background_image)
+                    .released(this.released)
                     .build();
         }
     }

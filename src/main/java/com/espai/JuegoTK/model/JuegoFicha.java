@@ -18,6 +18,7 @@ public class JuegoFicha {
     private String genero;
     private String imagen;
     private Integer metacritic;
+    private String released;
 
     //TODO: add more fields from API
 

@@ -59,6 +59,7 @@ public class JuegoServiceImpl implements IJuegoService{
 
         juegoFicha.setImagen(game.getBackground_image());
         juegoFicha.setMetacritic(game.getMetacritic());
+        juegoFicha.setReleased(game.getReleased());
 
         return juegoFicha;
     }
