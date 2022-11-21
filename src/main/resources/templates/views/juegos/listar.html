@@ -8,7 +8,7 @@
 <div class="container">
 
     <div class="container">
-        <a class="btn btn-success btn-sm mt-1 mb-1" th:href="@{/views/juegos/create}" th:text="'Nuevo registro'"
+        <a class="btn btn-success btn-sm mt-1 mb-1" th:href="@{/views/juegos/search}" th:text="'Nuevo registro'"
            title="Crear nuevo juego"></a>
         <table class="table">
             <thead class="table-dark">
@@ -18,7 +18,7 @@
                 <th scope="col">Plataforma</th>
                 <th scope="col">Genero</th>
                 <th scope="col">Desarrollador</th>
-               <!-- <th scope="col">Fecha de lanzamiento</th>-->
+                <!-- <th scope="col">Fecha de lanzamiento</th>-->
                 <th scope="col">Estado</th>
                 <th scope="col">Nota</th>
                 <th scope="col">Editar</th>
@@ -35,31 +35,26 @@
                 <td th:text="${juego.estado.estado}"></td>
                 <!--<td th:text="${jg.fechaLanzamiento}"></td>-->
                 <td th:text="${juego.nota}"></td>
-                <td >
+                <td>
                     <a class="btn btn-primary btn-sm mt-1 mb-1" th:href="@{/views/juegos/edit/}+${juego.id}"
                        th:text="'Editar'"
                        title="Modificar registro"></a>
                 </td>
 
-                <td >
+                <td>
                     <a class="btn btn-danger btn-sm mt-1 mb-1" th:href="@{/views/juegos/delete/}+${juego.id}"
                        th:text="'Eliminar'"
                        title="Eliminar registro"
                        onclick="return confirm('Estas seguro de eliminar el registro?')"></a>
 
                 </td>
-
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th scope="row"></th>
-                <td colspan="2"></td>
-                <td></td>
+                <td>
+                    <a class="btn btn-info btn-sm mt-1 mb-1"
+                       th:href="@{/views/juegos/ficha/}+${juego.id}"
+                       th:text="'Ver ficha'"
+                       title="Ver ficha"
+                    ></a>
+                </td>
             </tr>
             </tbody>
         </table>

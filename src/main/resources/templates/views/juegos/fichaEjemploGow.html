@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>Gameoteca</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+
+
+<!-- BARRA DE NAVEGACION -->
+
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light"  href="#"><strong>Gameoteca</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" th:href="@{/index}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" th:href="@{/views/juegos/}">Juegos</a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+
+<!-- CONTENIDO -->
+<div class="container">
+
+    <div class="container">
+
+
+        <div style="text-align:center">
+            <br>
+
+            <img src="https://image.api.playstation.com/vulcan/img/rnd/202010/2217/LsaRVLF2IU2L1FNtu9d3MKLq.jpg"
+                 width="500"
+                 height="350">
+            <br>
+            <br>
+
+
+            <table class="table">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col">Titulo:</th>
+                </tr>
+                </thead>
+            </table>
+            <p>God of War</p>
+
+            <table class="table">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col">Desarrollador:</th>
+                </tr>
+                </thead>
+            </table>
+            <p>Santa Monica Studios</p>
+
+            <table class="table">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col">Genero:</th>
+                </tr>
+                </thead>
+            </table>
+            <p>Aventura</p>
+
+            <table class="table">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col">Lanzamiento:</th>
+                </tr>
+                </thead>
+            </table>
+            <p>20-04-2018</p>
+
+            <table class="table">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col">Mi nota:</th>
+                </tr>
+                </thead>
+            </table>
+            <p>9</p>
+
+            <table class="table">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col">Metacritic:</th>
+                </tr>
+                </thead>
+            </table>
+            <p>94</p>
+
+
+            <table class="table">
+                <thead class="table-info">
+                <tr>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+            </table>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+<footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
+
+    <div class="container">
+        <p>Todos los derechos reservados  2022</p>
+    </div>
+    <script type="text/javascript" th:src="@{/js/jquery-3.3.1.slim.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+
+
+
+</footer>
+
+
+
+
+</body>
+</html>

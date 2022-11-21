@@ -1,6 +1,8 @@
 package com.espai.JuegoTK.service;
 import com.espai.JuegoTK.client.RawGClient;
-import com.espai.JuegoTK.client.model.RawGGame;
+import com.espai.JuegoTK.client.model.GameDTO;
+import com.espai.JuegoTK.client.model.GameResponse;
+import com.espai.JuegoTK.model.JuegoFicha;
 import com.espai.JuegoTK.persistence.entity.Juego;
 import com.espai.JuegoTK.persistence.repository.JuegoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +18,7 @@ public class JuegoServiceImpl implements IJuegoService{
     private JuegoRepository juegoRepository;
 
     @Autowired
-    private RawGClient rawGClient;
-
+    private ApiService apiService;
 
     @Override
     public List<Juego> listarTodos() {
@@ -31,20 +32,48 @@ public class JuegoServiceImpl implements IJuegoService{
 
     @Override
     public Juego buscarPorId(Integer id) {
-        Optional<Juego> juego = juegoRepository.findById(id);
-        if (juego.isPresent()) {
-            Integer lastOfUs2Id = 51325;
-            RawGGame gameFromApi = rawGClient.getGameById(lastOfUs2Id);
-            return juego.get();
-        }
         return null;
     }
+
 
     @Override
     public void eliminar(Integer id) {
         juegoRepository.deleteById(id);
     }
-}
 
+    @Override
+    public JuegoFicha getJuego(Integer id) {
+        Juego juego = juegoRepository.findById(id).orElseThrow();
+
+        JuegoFicha juegoFicha = JuegoFicha.builder()
+                .titulo(juego.getTitulo())
+                .genero(juego.getGenero().getGenero())
+                .desarrollador(juego.getDesarrollador())
+                .plataforma(juego.getPlataforma())
+                .nota(juego.getNota())
+                .estado(juego.getEstado())
+                .build();
+
+        //  TODO fill juegoficha with more data from gamedto
+        GameDTO game = apiService.getById(juego.getApiId());
+
+        juegoFicha.setImagen(game.getBackground_image());
+        juegoFicha.setMetacritic(game.getMetacritic());
+
+        return juegoFicha;
+    }
+
+    public List<GameDTO> searchGameByTitle(String title) {
+
+        return apiService.getByTitle(title);
+
+    }
+
+    public GameDTO getApiGameById(int id) {
+
+        return apiService.getById(id);
+
+    }
+}
 
 

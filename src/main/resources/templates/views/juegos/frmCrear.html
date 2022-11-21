@@ -15,8 +15,8 @@
             <form th:action="@{/views/juegos/save}"  th:object="${juego}" method="post">
                 <div class="form-group row">
 
-
-                  <input type="hidden" th:field="*{id}">
+                    <input type="hidden" th:field="*{apiId}">
+                    <input type="hidden" th:field="*{id}">
                     <label class="col-md-2" for="titulo">Titulo:</label>
                     <input type="text" th:field="*{titulo}" class="form-control form-control-sm col-md-6" id="titulo">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('titulo')}"
